@@ -1,0 +1,40 @@
+/* ## EXERCÍCIO 3B */
+
+	/* Selecionamos a tag body para aplicar estilo sobre ela */
+	body {
+
+/* ## EXERCÍCIO 4A */
+		
+		/* O atributo brackground-color está comentado para não surtir efeito em nosso HTML, conforme pede o exercício 4A */
+		/*background-color: pink;*/ /* Define a cor do fundo. Podemos definir cores pelo nome (inglês), código hexadecimal (ex.: #009aff), rgb, rgba (rgba(125,225,0,0.5)), hsl ou hsla (hsla(120, 100%, 50%, 0.5)). */
+		font-family: Raleway, sans-serif; /* Definimos que a família de fontes será sem serifas (sans-serif) */
+	}
+
+/* ## EXERCÍCIO 4B */
+	
+	/* Selecionamos as tags h1 e h2 */
+	h1, h2 {
+		color: #1c4e9e; /* Aplicamos cor (por seu código HEXADECIMAL) nas fontes (para cor no fundo utilizamos o background-color) */
+	}
+
+/* ## EXERCÍCIO 4C */
+
+	h1 {
+		font-style: italic; /* Aplicamos o estilo itálico no título principal (h1) */
+		text-align: center; /* Centralizamos o texto de h1 */
+	}
+
+/* ## EXERCÍCIO 4D */
+
+	h2 {
+		font-weight: normal; /* Deixamos o peso dos subtítulos (h2) normal, ou seja, sem negrito, que é seu padrão */
+		text-decoration: underline; /* Definimos que os subtítulos h2 serão sublinhados */
+	}
+
+/* ## EXERCÍCIO 4E */
+
+	p {
+		text-align: justify; /* Deixamos os textos de todos os parágrafos centralizados */
+		font-size: 14px; /* Definimos um tamanho de fonte de 14 pixels para os parágrafos */
+		line-height: 23px; /* Definimos uma altura de linha (como um entrelinhas) de 23 px (9px a mais que o tamanho da fonte, ou seja, fica 4,5 pixels para cima e 4,5 para baixo da fonte) */
+	}

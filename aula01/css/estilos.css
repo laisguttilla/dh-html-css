@@ -1,0 +1,19 @@
+body {
+	font-family: Raleway, sans-serif; /* Definimos que a família de fontes será sem serifas (sans-serif) */
+}
+h1, h2 {
+	color: #1c4e9e; /* Aplicamos cor (por seu código HEXADECIMAL) nas fontes (para cor no fundo utilizamos o background-color) */
+}
+h1 {
+	font-style: italic; /* Aplicamos o estilo itálico no título principal (h1) */
+	text-align: center; /* Centralizamos o texto de h1 */
+}
+h2 {
+	font-weight: normal; /* Deixamos o peso dos subtítulos (h2) normal, ou seja, sem negrito, que é seu padrão */
+	text-decoration: underline; /* Definimos que os subtítulos h2 serão sublinhados */
+}
+p {
+	text-align: justify; /* Deixamos os textos de todos os parágrafos centralizados */
+	font-size: 14px; /* Definimos um tamanho de fonte de 14 pixels para os parágrafos */
+	line-height: 23px; /* Definimos uma altura de linha (como um entrelinhas) de 23 px (9px a mais que o tamanho da fonte, ou seja, fica 4,5 pixels para cima e 4,5 para baixo da fonte) */
+}
