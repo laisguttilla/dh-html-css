@@ -1,0 +1,298 @@
+/* ## RESET - INÍCIO */
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+/* ## RESET - FIM */
+
+/* ## GERAL - INÍCIO */
+	body {
+		background-color: #f6f1db;
+		background-image: url('../img/bg.png');
+		background-size: 640px auto;
+		background-attachment: fixed;
+		background-position: center;
+		background-repeat: repeat;
+		margin: 0;
+	}
+/* ## GERAL - FIM */
+
+/* ## HEADER - INÍCIO */
+	header {
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+		align-items: stretch;
+	}
+	#menuLogo {
+		display: block;
+		margin: 10px auto;
+		width: 120px;
+		height: 120px;
+		border-radius: 50%;
+		border: 2px solid #bfb588;
+	}
+	#menuUl {
+		width: 100%;
+		margin: 10px auto;
+		flex: 1 1 auto;
+		list-style: none;
+		display: flex;
+		flex-flow: row wrap;
+		align-items: center;
+		justify-content: space-between;
+	}
+	#menuUl li {
+		flex: 1 1 auto;
+		background-color: #51504e;
+		padding: 5px;
+		margin: 5px;
+		text-align: center;
+		transition: background-color 0.4s ease-in-out;
+	}
+	#menuUl li:first-child {
+		margin-left: 0;
+	}
+	#menuUl li:last-child {
+		margin-right: 0;
+	}
+	#menuUl li a {
+		text-decoration: none;
+		color: #fff;
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+/* ## HEADER - FIM */
+
+/* ## MAIN - INÍCIO */
+	#bannerTopo {
+		background-image: url('../img/banner.png');
+		background-size: cover;
+		background-attachment: scroll;
+		background-position: center;
+		background-repeat: no-repeat;
+		margin: 0;
+		min-height: 15vh;
+	}
+	section {
+		margin: 20px auto;
+	}
+	.cards {
+		position: relative;
+	}
+	.pratoImgContainer {
+		overflow: hidden;
+		transition: filter 0.8s ease-in-out;
+		margin-bottom: 10px;
+		position: relative;
+	}
+	.pratoImgContainer:hover {
+		filter: drop-shadow(0px 2px 0.75rem #51504e);
+	}
+	.pratoFoto {
+		position: relative;
+		margin: 0;
+		width: 100%;
+		height: auto;
+		transition: all 0.8s ease-in-out;
+	}
+	.cards:hover .pratoFoto{
+		transform: scale(1.1);
+	}
+	.vegano ~ p::after {
+		content: url('../img/vegano.png');
+		position: absolute;
+			top: -145%;
+			right: 10px;
+		width: 60px;
+		height: 60px;
+	}
+	.organico ~ p::after {
+		content: url('../img/organico.png');
+		position: absolute;
+			top: -145%;
+			right: 10px;
+		width: 60px;
+		height: 60px;
+	}
+	.saudavel ~ p::after {
+		content: url('../img/saudavel.png');
+		position: absolute;
+			top: -145%;
+			right: 10px;
+		width: 60px;
+		height: 60px;
+	}
+	.verFotoAmp {
+		background-color: rgba(0,0,0,0.5);
+		width: 100%;
+		margin: 0;
+		text-align: center;
+		text-transform: capitalize;
+		position: absolute;
+			top: 40%;
+		color: #fff;
+		font-weight: bolder;
+		font-size: 1.1em;
+		line-height: 2.2em;
+	}
+	.btnPratos {
+		background-color: #51504e;
+		padding: 10px;
+		margin: 10px 0;
+		text-align: center;
+		color: #fff;
+		text-transform: lowercase;
+		font-weight: bold;
+		font-size: 1.1em;
+		transition: background-color 0.4s ease-in-out;
+		border-style: none;
+	}
+	#menuUl li:hover, .btnPratos:hover {
+		background-color: #ab1414;
+	}
+/* ## MAIN - FIM */
+
+/* ## FOOTER - INÍCIO */
+	footer {
+		background-color: #ab1414;
+		bottom: 0;
+		margin-bottom: 0;
+		border-radius: 40px 40px 0 0;
+		padding: 10px;
+		height: 100px;
+	}
+	#footerUl {
+		/*width: 66%;*/
+		margin: 10px auto 10px auto;
+		list-style: none;
+		display: flex;
+		flex-flow: row wrap;
+		align-items: center;
+		justify-content: space-around;
+	}
+	#footerUl li {
+		flex: 1 1 auto;
+		margin: 2px;
+		text-align: center;
+		transition: font-weight 0.4s ease-in-out;
+	}
+	#footerUl li:first-child {
+		margin-left: 0;
+	}
+	#footerUl li:last-child {
+		margin-right: 0;
+		border-right: none;
+	}
+	#footerUl li a {
+		text-decoration: none;
+		color: #fff;
+		text-transform: capitalize;
+		font-size: 0.8em;
+		font-weight: regular;
+	}
+	#footerUl li a:hover {
+		font-weight: bold;
+	}
+/* ## FOOTER - FIM */
+
+/* ## MEDIA QUERIES - INÍCIO */
+	@media only screen and (min-width: 480px) {
+		#bannerTopo {
+			min-height: 24vh;
+		}
+		.pratoImgContainer {
+			max-height: 113px;
+		}
+		.vegano ~ p::after {
+			top: -119%;
+			right: 3px;
+		}
+		.organico ~ p::after {
+			top: -119%;
+			right: 3px;
+		}
+		.saudavel ~ p::after {
+			top: -119%;
+			right: 3px;
+		}
+		#footerUl li {
+			margin: 4px;
+		}
+		#footerUl li a {
+			font-size: 0.70em;
+		}
+	}
+	@media only screen and (min-width: 640px) {
+		#footerUl li a {
+			font-size: 0.8em;
+		}
+	}
+	@media only screen and (min-width: 670px) {
+		.pratoImgContainer {
+			max-height: 200px;
+		}
+		.vegano ~ p::after {
+			top: -235%;
+			right: 2px;
+		}
+		.organico ~ p::after {
+			top: -235%;
+			right: 2px;
+		}
+		.saudavel ~ p::after {
+			top: -235%;
+			right: 2px;
+		}
+		#footerUl li {
+			margin: 5px;
+		}
+		#footerUl li a {
+			font-size: 0.9em;
+		}
+	}
+	@media only screen and (min-width: 960px) {
+		#bannerTopo {
+			min-height: 30vh;
+		}
+		.pratoImgContainer {
+			max-height: 220px;
+		}
+		.vegano ~ p::after {
+			top: -230%;
+			right: 2px;
+		}
+		.organico ~ p::after {
+			top: -230%;
+			right: 2px;
+		}
+		.saudavel ~ p::after {
+			top: -230%;
+			right: 2px;
+		}
+		#footerUl li {
+			margin: 6px;
+		}
+		#footerUl li a {
+			font-size: 1.2em;
+		}
+	}
+	@media only screen and (min-width: 1200px) {
+		.vegano ~ p::after {
+			top: -210%;
+			right: 1px;
+		}
+		.organico ~ p::after {
+			top: -210%;
+			right: 1px;
+		}
+		.saudavel ~ p::after {
+			top: -210%;
+			right: 1px;
+		}
+		#footerUl li {
+			border-right: 1px solid #fff;
+		}
+	}
+/* ## MEDIA QUERIES - FIM */
