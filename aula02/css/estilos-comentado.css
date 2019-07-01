@@ -1,0 +1,105 @@
+	
+	/* DICA: o asterisco representa um seletor universal, ou seja, o que for declarado aqui se aplica a tudo dentro do seu documento HTML */
+	
+	* {
+		scroll-behavior: smooth; /* DICA: esse atributo define como o scroll (no caso de cliques em âncoras, por exemplo) se comportará. O valor smooth diz que deve ser suave a transição. */
+	}
+
+	body {
+		font-family: Raleway, sans-serif; /* Definimos que a família de fontes será sem serifas (sans-serif) */
+
+/* ## EXERCÍCIO 3A */
+/* ## EXERCÍCIO 3B */
+
+		background-image:linear-gradient(to right,green 0%,yellow 100%),url('../images/bg.png'); /* Estamos definindo uma imagem de fundo (o link da imagem - no caso, relativo - deve ser indicado após o valor 'url(' e antes do fechamento das aspas). Mas antes, também declaramos um fundo com um degradê */
+		background-blend-mode: soft-light; /* Leia no final do documento mais detalhes sobre esse atributo, que mescla o gradiente com a imagem de fundo. =) */
+		background-color: rgba(255,255,255,0.2); /* Além da mescla citada acima, estamos acrescentando uma cor branca com opacidade de 20%, para clarear o fundo e permitir uma boa leitura dos textos.  */
+		background-repeat: repeat; /* Como baixamos uma imagem do tipo pattern (que pode ser repetida sem que o usuário note, por conta de seu 'padrão', em inglês pattern), permitiremos que ela se repita (em ambos os eixos, x e y). */
+		background-attachment: fixed; /* Semelhante ao atributo position para elementos HTML, temos o background-attachment (valores: scroll, fixed e local - veja mais no final do arquivo, busque por SOBRE O background-attachment usando Ctrl+F) */
+		background-position: center; /* Podemos declarar a posição vertical e horizontal separadamente. Podemos fazer isso usando os termos top, bottom, right, left ou podemos usar unidades de medida (px, %, em, cm...). Ou ainda, ambos (top 10px right 50px) */
+	}
+
+	h1, h2 {
+		color: #1c4e9e; /* Aplicamos cor (por seu código HEXADECIMAL) nas fontes (para cor no fundo utilizamos o background-color) */
+	}
+
+/* ## EXERCÍCIO 3C */
+
+	h1 {
+		font-style: italic; /* Aplicamos o estilo itálico no título principal (h1) */
+		text-align: center; /* Centralizamos o texto de h1 */
+		background-color: rgba(255,255,255,0.65); /* rgba é uma sigla que se refere a: Red (vermelho), Green (verde), Blue (azul) e Alpha (opacidade, 1 para 100% opaco/0% transparente e 0 para 100% transparente/0% opaco). */
+	}
+
+	h2 {
+		font-weight: normal; /* Deixamos o peso dos subtítulos (h2) normal, ou seja, sem negrito, que é seu padrão */
+		text-decoration: underline; /* Definimos que os subtítulos h2 serão sublinhados */
+	}
+
+	p {
+		text-align: justify; /* Deixamos os textos de todos os parágrafos centralizados */
+
+/*## EXERCÍCIO 3D (parte 2)*/
+
+		font-size: 22px; /* Definimos um tamanho de fonte de 14 pixels para os parágrafos */
+		line-height: 28px; /* Definimos uma altura de linha (como um entrelinhas) de 23 px (9px a mais que o tamanho da fonte, ou seja, fica 4,5 pixels para cima e 4,5 para baixo da fonte) */
+	}
+
+/* ## EXERCÍCIO 3D (parte 1) */
+
+	.destaque { /* Seletor por classe (utiliza o ponto) */
+		background-color: orange;
+		color: purple;
+	}
+
+/*
+**
+** ### SOBRE O background-attachment ###
+** ___________________________________
+** 
+** Considere a seguinte estrutura:
+** 
+** <body>
+**   <section id='comImagemDeFundo'>
+**   </section>
+** </body>
+** 
+** Supondo que o conteúdo da section é mais 'alto' do que sua altura - e que há uma barra de rolagem para visualizar
+** o restante do conteúdo, nós selecionamos a section por seu id (#comImagemDeFundo) e aplicamos a imagem de fundo.
+** 
+** Ou seja, temos a imagem de fundo sendo aplicada à section que, por sua vez, está dentro do body. 
+**
+** Nesse contexto, os diferentes background-attachment funcionariam da seguinte maneira:
+** 
+** FIXED: a imagem de fundo fica fixa (ou parada) tanto em relação ao body quanto à section (quando 'rolamos' a tela).
+** 
+** SCROLL: dentro da section, a imagem ficará parada enquanto o conteúdo 'rola'. Mas se você rolar a página (fora da section, descendo para outras sections, por exemplo), a imagem 'rola' junto.
+** 
+** LOCAL: a imagem rola junto com o conteúdo, tanto dentro quanto fora da section.
+** 
+** Acesse https://codepen.io/BernLeech/pen/mMNKJV para entender melhor o comportamento desses três valores para o background-attachment.
+**
+*/
+
+/*
+** ### SOBRE linear-gradient() E o background-image + background-blend-mode ###
+** ___________________________________
+** 
+** Podemos declarar uma cor (ou gradiente) E uma imagem ao background-image e definir como os dois serão mesclados. Funciona como os filtros de layers utilizados no color overlay do Photoshop.
+** 
+** tag.classe {
+**   background-image: linear-gradient(to right,green 0%,yellow 100%),url('../images/bg.png');
+**   background-blend-mode:overlay;
+** }
+** 
+** Nesse exemplo temos o linear-gradient, onde 'to right' diz que o gradiente vai da esquerda para a direita (horizontalmente) e o 'green 0%, yellow 100%' dizemos que o gradiente (degradê) começa
+** amarelo (0%, no início do degradê) e termina verde (100%, ou seja, no final do degradê).
+** 
+** Em seguida 'chamamos' a imagem (com o url(pasta/link-relativo-ou-absoluto.gif)).
+**
+** Na sequência declaramos background-blend-mode, ou seja, como mesclaremos a imagem e o degradê. E optamos pelo filtro overlay.
+** 
+** Acesse https://www.w3schools.com/cssref/playit.asp?filename=playcss_background-blend-mode e experimente os diferentes valores possíveis (normal, multiply, screen, overlay, darken, lighten,
+** color-edge, saturation, color e luminosity).
+** 
+*/

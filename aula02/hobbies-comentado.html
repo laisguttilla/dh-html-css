@@ -1,0 +1,108 @@
+<!DOCTYPE html> <!-- Define o tipo do documento -->
+
+<!-- ## EXERCÍCIO 1F (parte 1) -->
+
+<html lang="pt-BR"> <!-- Define o idioma do documento (isso ajuda o Google a sugerir a tradução, por exemplo) -->
+
+	<head> <!-- head: parte invisível do documento, prove informações ao navegador, como o título do site e o conjunto de caracteres a ser utilizado -->
+
+		<meta charset="utf-8"> <!-- Define o conjunto de caracteres a ser utilizado. Utilizamos o utf-8 por padrão -->
+		<title>Meus Passatempos</title> <!-- Define o título do documento (que aparece na aba do navegador) -->
+		<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet"> <!-- Link que traz a família de fontes Raleway, nesse caso, do Google Fonts (https://fonts.google.com/). -->
+		<link rel="stylesheet" type="text/css" href="css/estilos-comentado.css"> <!-- tag link: vincula um documento externo à esse documetno (com link relativo ou absoluto) -->
+		<!-- ### DICA: como o site é lido de cima para baixo pelos computadores, declaramos nossa folha de estilo por último, para que nossas definições se sobreponham em caso de conflitos com outras folhas de estilo -->
+		
+	</head>
+
+	<body><!-- body: é onde inserimos o conteúdo que ficará visível para o visitante -->
+
+		<h1>Meus Passatempos</h1> <!-- h1: é a tag do título principal da página, só pode ser utilizada uma vez por tela/documento. -->
+
+<!-- ## EXERCÍCIO 1F (parte 2) -->
+
+		<h3><a href="index-comentado.html">Voltar para o currículo</a></h3> <!-- O valor do atributo href é um link relativo, ou seja, ele buscará um arquivo index.html na mesma pasta em que esse arquivo hobbies.html está. Isso nos ajuda muito quando precisamos migrar o site/projeto para outra pasta, computador ou servidor. Se fosse um link absoluto (https://enderecodosite.com.br/index.html), a cada mudança precisaríamos mudar todo e cada link interno.  -->
+
+<!-- ## EXERCÍCIO 2D -->
+
+	<h2>Imagens relacionadas aos meus hobbies</h2>
+
+	<img src="images/harvard.png" width="360" height="auto" alt="diploma de Harvard" title="Me formei em Harvard. #SQN"> <!-- A tag img (para imagens) deve receber o atributo src (source, ou fonte - indica de onde vem a imagem). É uma tag self-closed, ou seja, ela se fecha na mesma tag de abertura. -->
+
+	<img src="images/teatro.png" width="360" height="auto" alt="Teatro" title="Adoro uma atuação"> <!-- Você pode definir as dimensões com os atributos height e width (também pode declará-los no css). Ao inserir uma das medidas e a outra como auto, você garante que a proporção da imagem será mantida. É possível redimensionar a imagem dessa maneira, mas o ideal é que a imagem seja salva no tamanho que será exibido, otimizando assim a performance do site. -->
+	
+	<img src="images/quimica.png" width="360" height="auto" alt="Química" title="Eu gosto de químicos"> <!-- Os atributos title e alt também são importantes. O alt aparece caso a imagem quebre (arquivo mudou de local, imagem corrompida...) e também para descrever o que há na imagem para deficientes visuais. Já o atributo title serve como tooltip ao passar o mouse sobre a imagem e enriquece o SEO do site. -->
+
+	<!-- DICA: se estiver usando o Photoshop para produzir a imagem, salve para web (Save for Web). Você também pode usar compressores para reduzir o peso do arquivo, deixando o site mais rápido. Há ferramentas gratuitas para isso, como o site https://tinyjpg.com. -->
+
+	<h2>Vídeo em HTML5</h2>
+
+<!-- ## EXERCÍCIO 2E -->
+
+	<video muted preload="auto" controls width="640" height="auto" poster="images/semgrama-responsa.png" loop> <!-- Alguns atributos já vêem false como padrão, só declaramos para saberem que existem. IMPORTANTE: não declaramos o autoplay para que pudessem ver o poster. Poster é a capa (img) do vídeo. O autoplay tem sido cada vez mais bloqueado por navegadores. E a opção muted também tende a ser um padrão. -->
+
+		<source src="videos/responsa-semgrama.webm" type='video/webm; codecs="vp8, vorbis"' /> <!-- Formato webm é um formato de vídeo específico para web, desenvolvido pelo Google e apoiado pela Opera e Mozilla. Consiste em um container com o stream do vídeo e áudio ogg. -->
+		<source src="videos/responsa-semgrama.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+		<source src="videos/responsa-semgrama.Ogg" type='video/ogg; codecs="theora, vorbis"' /> <!-- Ogg é um formato livre de encapsulamento de multimídia, permitindo seu stream antes mesmo de carregar todo o arquivo, tornando seu processamento mais rápido. Não se limita a áudio e vídeo. -->
+		Ops... parece que seu navegador não suporta vídeos... tente atualizá-lo, por favor. <!-- Essa frase será exibida caso o navegador não consiga ler nenhum dos três formatos de vídeos declarados -->
+	
+	</video>
+
+	<!--
+
+	DICA: compatibilidade dos formatos de vídeo x navegadores:
+
+	BROWSER | MP4 | WEBM | OGG
+	___________________________
+	IE      |  S  |  N   |  N
+	Chrome  |  S  |  S   |  S
+	Firefox |  S  |  S   |  S
+	Safari  |  S  |  N   |  N
+	Opera   |  S  |  S   |  N
+	___________________________
+	S = Sim; N = Não.
+	
+	-->
+
+	<!--
+
+	DICA 2: você pode selecionar apenas um trecho do vídeo para reproduzir, basta declarar o tempo inicial e final (hh:mm:ss). Basta adicionar esse trecho (snippet) após o nome do arquivo e sua extensão. Ficaria assim num mp4:
+
+		<source src="pasta/nome-do-arquivo.mp4#t=00:01:00,00:02:30" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+
+	Ou seja, o trecho do código < #t=00:01:00,00:02:30 > está definindo que o vídeo será exibido do minuto 1 até o 2,5 (1'30" de vídeo).
+	
+	-->
+
+	<h2>Áudio em HTML5</h2>
+
+<!-- ## EXERCÍCIO 2F -->
+<!-- NOTA IMPORTANTE: no enunciado 2f, pede-se que criemos uma pasta 'áudio'. O nome correto deve ser 'audio' (sem acento). Nome de pastas, arquivos, funções, variáveis não devem conter acentuação, espaços nem caracteres especiais. -->
+
+	<audio autoplay preload="auto" controls loop> <!-- Perceba que funciona exatamente como a tag video com exceção dos atributos width, height e poster (podem até funcionar em alguns browsers, mas há melhores maneiras de se implementar esses atributos). Nesse caso declaramos o autoplay (mas cada vez mais os navegadores impedirão que o autoplay seja executado e/ou farão com que o volume seja mutado - tudo isso em respeito ao usuário. Por isso, use com cuidado). -->
+
+		<source src="audios/responsa-semgrama.wav" type="audio/wav" /> <!-- Formato wav é um formato de áudio. -->
+		<source src="audios/responsa-semgrama.mp3" type="audio/mp3" />
+		<source src="audios/responsa-semgrama.Ogg" type="audio/ogg" />
+		Ops... parece que seu navegador não suporta áudio... tente atualizá-lo, por favor.
+	
+	</audio>
+
+	<!--
+
+	DICA: compatibilidade dos formatos de áudio x navegadores:
+
+	BROWSER | MP3 | WAV | OGG
+	___________________________
+	IE      |  N  |  N  |  N
+	Chrome  |  S  |  N  |  S
+	Firefox |  N  |  S  |  S
+	Safari  |  S  |  S  |  N
+	Opera   |  N  |  S  |  S
+	___________________________
+	S = Sim; N = Não.
+	
+	-->
+
+	</body>
+
+</html>

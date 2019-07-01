@@ -1,0 +1,31 @@
+* {
+	scroll-behavior: smooth;
+}
+body {
+	font-family: Raleway, sans-serif;
+	background-image:url('../images/bg.png');
+	background-repeat: repeat;
+	background-attachment: fixed;
+	background-position: center;
+}
+h1, h2 {
+	color: #1c4e9e;
+}
+h1 {
+	font-style: italic;
+	text-align: center;
+	background-color: rgba(255,255,255,0.65);
+}
+h2 {
+	font-weight: normal;
+	text-decoration: underline;
+}
+p {
+	text-align: justify;
+	font-size: 22px;
+	line-height: 28px;
+}
+.destaque {
+	background-color: orange;
+	color: purple;
+}
