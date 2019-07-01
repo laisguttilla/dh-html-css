@@ -1,0 +1,124 @@
+* {
+	scroll-behavior: smooth;
+	box-sizing: border-box;
+}
+body {
+	font-family: Raleway, sans-serif;
+	background-color: rgba(255,255,255,0.2);
+	background-image:url('../images/bg.png');
+	background-repeat: repeat;
+	background-attachment: fixed;
+	background-position: center;
+}
+h1, h2 {
+	color: #1c4e9e;
+}
+h1 {
+	font-style: italic;
+	text-align: center;
+	background-color: rgba(255,255,255,0.65);
+}
+h2 {
+	font-weight: normal;
+	text-decoration: underline;
+}
+mark {
+	font-family: Nunito, cursive;
+}
+strong, em {
+	color: black;
+	text-decoration: underline;
+}
+p {
+	text-align: justify;
+	font-size: 22px;
+	line-height: 28px;
+}
+.destaque {
+	background-color: orange;
+	color: purple;
+}
+label {
+	font-weight: bold;
+}
+input:focus, select:focus, textarea:focus {
+	background-color: #ccffcc;
+	font-weight: bolder;
+}
+a:hover {
+	background-color: #f15022;
+	font-weight: bolder;
+	color: white;
+	border: 2px solid purple;
+}
+textarea {
+	resize: both;
+	font-weight: bolder;
+}
+img.hobbies {
+	margin: 20px 14%;
+}
+img.hobbies:hover {
+	filter: drop-shadow(1px 1px 3px black) grayscale(100%);
+		-webkit-filter: drop-shadow(1px 1px 3px black) grayscale(100%);
+	border-radius: 20px;
+}
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 1;
+  -webkit-transition: opacity .2s ease;
+  transition: opacity .2s ease;
+}
+input[type="range"]:hover {
+  opacity: 0.8;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: orange;
+  cursor: pointer;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: orange;
+  cursor: pointer;
+}
+header, footer, main, .formContainer, .descPessoal, .dadosPessoais, .formAcademica, .expPro, .extras {
+	background-color: rgba(125,125,125,0.5);
+	width: 960px;
+	padding: 30px;
+	border: 5px dotted blue;
+	margin: 20px auto;
+}
+main {
+	height: -webkit-fill-available;
+	overflow-y: scroll;
+}
+article {
+	background-color: rgba(125,125,125,0.5);
+	padding: 30px;
+	border: 5px dotted blue;
+	margin: 20px auto;
+}
+#aside {
+	width: 33%;
+	float: left;
+	border: 5px dotted blue;
+	background-color: rgba(125,125,125,0.5);
+	margin: 20px auto;
+}
+#main {
+	width: 66%;
+	float: right;
+}
+footer {
+	text-align: center;
+}

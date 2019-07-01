@@ -1,0 +1,177 @@
+<!DOCTYPE html> <!-- Define o tipo do documento -->
+
+<html lang="pt-BR"> <!-- Define o idioma do documento (isso ajuda o Google a sugerir a tradução, por exemplo) -->
+
+	<head> <!-- head: parte invisível do documento, prove informações ao navegador, como o título do site e o conjunto de caracteres a ser utilizado -->
+
+		<meta charset="utf-8"> <!-- Define o conjunto de caracteres a ser utilizado. Utilizamos o utf-8 por padrão -->
+		<title>Formulário de Contato</title> <!-- Define o título do documento (que aparece na aba do navegador) -->
+		<link href="https://fonts.googleapis.com/css?family=Raleway|Nunito&display=swap" rel="stylesheet"> <!-- Link que traz a família de fontes Raleway, nesse caso, do Google Fonts (https://fonts.google.com/). -->
+		<link rel="stylesheet" type="text/css" href="css/estilos-comentado.css"> <!-- tag link: vincula um documento externo à esse documetno (com link relativo ou absoluto) -->
+		<!-- ### DICA: como o site é lido de cima para baixo pelos computadores, declaramos nossa folha de estilo por último, para que nossas definições se sobreponham em caso de conflitos com outras folhas de estilo -->
+		
+	</head>
+
+	<body><!-- body: é onde inserimos o conteúdo que ficará visível para o visitante -->
+
+		<header>
+			<ul>
+				<li><a href="index-comentado.html" rel="tag" title="Voltar para Home" target="_self">Início</a></li>
+				<li><a href="hobbies-comentado.html" rel="tag" title="Ver Hobbies" target="_self">Hobbies</a></li>
+				<!-- <li><a href="contato-comentado.html" rel="tag" title="Entrar em Contato" target="_self">Contato</a></li> -->
+			</ul>
+		</header>
+
+		<h1>Formulário de Contato</h1> <!-- h1: é a tag do título principal da página, só pode ser utilizada uma vez por tela/documento. -->
+		
+		<section class="formContainer">
+
+			<form method="POST" action="#" id="formulario"> <!-- tag form, utilizada para definir um formulário. O atributo action define para onde os dados serão enviados e então tratados. O method define o método (POST - seguro - e GET - 'público', inseguro, pois exibe os dados na URL) -->
+				
+				<label for="nome">Nome</label> <!-- label é a tag rótulo do input. Além de sinalizar o que deve ser inserido no campo, usando o atributo for (cujo alvo é o id do input) fazemos com que quando o usuário clicar no rótulo, o campo seja selecionado. -->
+				<input type="text" name="nome" id="nome" placeholder="Insira seu nome aqui" required autofocus /><br/> <!-- tag input (recebe informações do user) possui o atributo type (no caso text), id (alvo/target do do atributo for do label) e placeholder (text exibido dentro do campo e que some quando o usuário começa a digitar). Autofocus determina que ao carregar a página o campo já seja selecionado. Required faz com que o campo seja obrigatório (validação simples pelo próprio HTML). O atributo name será visto no módulo PHP (SPOILER: é usado para capturar o dado inserido no input). -->
+
+				<label for="sobrenome">Sobrenome</label>
+				<input type="text" name="sobrenome" id="sobrenome" value="da Silva" placeholder="Insira seu sobrenome aqui" required/><br/> <!-- Se quiser que o campo venha preenchido, utilize o atributo value. Ao contrário do placeholer, o value é um texto 'pré inserido' mesmo, o usuário precisa apagar ou alterar o valor (ou manter, se preferir) -->
+
+				<label for="email">Email</label>
+				<input type="email" name="email" id="email" placeholder="Insira seu email aqui" required/><br/> <!-- O tipo email já valida se é realmente um email (se tem @). Nesse exercício comentado, a validação foi sobreposta por uma simples script em JS que fiz para já poderem ver como funciona o JS na validação dos campos (e para mostrar o input hidden contendo um token de validação). Na versão sem comentários funcionará certinho. -->
+				<!-- Obs.: por enquanto estamos utilizando o <br>, mas em breve aprenderemos a diagramar nosso formulário com outras propriedades css -->
+
+				<label for="genero">Gênero</label><br/>
+				<input type="radio" name="genero" value="feminino" checked/> <span>Feminino</span><br/><!-- O atributo checked faz com que a opção já venha pré-selecionada -->
+				<input type="radio" name="genero" value="masculino"/> <span>Masculino</span><br/> <!-- value será o valor passado por PHP (para isso, fazemos um loop para descobrir qual está com o valor checked) =) -->
+				<input type="radio" name="genero" value="outro"/> <span>Outro</span><br/> <!-- name para capturarmos o campo via PHP -->
+				<input type="radio" name="genero" value="nenhum"/> <span>Nenhum</span><br/> <!-- Radio buttons só permitem que a gente escolha uma das opções -->
+				<input type="radio" name="genero" value="todos"/> <span>Todos</span><br/>
+
+				<label for="passatempo">Passatempos</label><br/>
+				<input type="checkbox" value="Passatempo 1" name="passatempo"/> <span>Passatempo 1</span><br/> <!-- Checkboxes por sua vez, permitem múltiplas escolhas -->
+				<input type="checkbox" value="Passatempo 2" name="passatempo"/> <span>Passatempo 2</span><br/>
+				<input type="checkbox" value="Passatempo 3" name="passatempo"/> <span>Passatempo 3</span><br/>
+				<input type="checkbox" value="Passatempo 4" name="passatempo"/> <span>Passatempo 4</span><br/>
+				<input type="checkbox" value="Passatempo 5" name="passatempo"/> <span>Passatempo 5</span><br/>
+
+				<label for="assunto">Assunto da Mensagem</label><br/>
+				<select name="assunto" id="assunto">
+					<optgroup label="Assuntos mais comuns"> <!-- Optgroup é uma maneira de agrupar as opções, por exemplo, organizando países por continentes -->
+						<option value="1" id="1">Assunto 1</option><br/>
+						<option value="2" id="2" disabled>Assunto 2 (desabilitado/disabled)</option><br/> <!-- Com o atributo disabled conseguimos 'congelar' a opção, impedindo assim sua seleção -->
+						<option value="3" id="3">Assunto 3</option><br/>
+					</optgroup>
+					<optgroup label="Assuntos específicos"> <!-- Veja que podemos usar mais de um optgroup -->
+						<option id="4" value="4">Tema Específico 1</option> <!-- Perceba que as tags select e option são um pouco diferentes das tags de input, mas o uso é o mesmo (capturar e transmitir informações inseridas pelo user) -->
+						<option id="5" value="5">Tema Específico 2</option>
+						<option id="6" value="6">Tema Específico 3</option>
+					</optgroup>
+				</select>
+
+				<br/>
+
+				<label for="mensagem">Mensagem</label><br/>
+				<textarea id="mensagem" name="mensagem" cols="60" rows="12" maxlength="114" form="formulario" placeholder="Insira sua mensagem aqui (máximo de 114 caracteres)." wrap="hard"></textarea><br/> <!-- A tag textarea é outra tag que difere do input. Como atributos adicionais temos o max-lenght (máximo de caracteres), rows e cols (para determinar o tamanho do container) e algumas outras diferentes. O atributo form serve para atrelar o campo ao formulário pelo id. O atributo wrap com valor hard leva as quebras de linha para os valores enviados (o default/padrão é o soft, que tira as quebras de linhas ao enviar os dados). -->
+				<!-- DICA EXTRA: há ainda um atributo chamado readonly - ele impede a edição do texto, vira um texto informativo. -->
+
+				<!-- MAIS TIPOS DE INPUTS!!! -->
+
+				<fieldset form="formulario"> <!-- O fieldset agrupa os inputs dentro dele -->
+
+					<legend><mark>Tipos de Inputs Extra</mark></legend> <!-- E a tag legend é o título do fieldset -->
+					<h4>Só pra quem baixou a versão comentada! hehehe...</h4><br/>
+
+					<label for="arquivo">Upload de Arquivo</label><br/>
+					<input type="file" name="arquivo" id="arquivo" accept=".txt, .pdf" multiple/><br/> <!-- Permite o upload de arquivos (é possível limitar os tipso de arquivo com o atributo accept, podendo ter valores como a extensão ou o tipo de arquivo - audio/*, video/* ou por media types). No caso só aceitamos arquivos txt ou pdf. E o atributo multiple permite adicionar mais de um arquivo. -->
+
+					<label for="cor">Cor</label><br/>
+					<input type="color" name="cor"/><br/> <!-- Permite selecionar uma cor pelo "color picker" -->
+
+					<label for="data">Data - entre 01/01/1900 e 31/12/2018</label><br/>
+					<input type="date" name="data" id="data" min="1900-01-01" max="2018-12-31"/><br/> <!-- Seleção de data, no caso com restrições de data mínima e máxima -->
+
+					<label for="dataLocal">Data e Horário</label><br/>
+					<input type="datetime-local" name="dataLocal" id="dataLocal"/><br/> <!-- Permite selecionar uma data e horário. Funciona melhor com uso de JS para melhorar a experiência do usuário (UX) -->
+
+					<label for="mes">Mês</label><br/>
+					<input type="month" name="mes" id="mes"/><br/>
+
+					<label for="numero">Número - entre 0 e 100 e de 5 em 5</label><br/>
+					<input type="number" name="numero" id="numero" min="0" max="100" step="5"/><br/> <!-- Atributos como min e max nos ajudam a pré-validar ou limitar os valores inseridos. O atributo step define de quantos em quantos números a contagem é feita (exemplo para step como 5: 5, 10, 15, 20...). Dependendo do navegador, se posicionar o mouse sobre o campo (com um valor fora da regra), aparece uma tooltip dizendo o número aceito mais próximo. -->
+					
+					<label for="numeroLista">Número - entre as opções da lista</label><br/> <!-- Extra: há ainda o atributo list, que permite a seleção de elementos já listados, em uma tag chamada datalist. A integração entre o atributo list e os valores da tag datalist (listados em tags option) é feita pelo id da datalist). -->
+					<input type="number" name="numeroLista" id="numeroLista" list="valoresLista"/><br/>
+					<!-- Observação: o datalist considera os caracteres digitados para filtras as opções na lista. Por isso, quando o usuário quer trocar o número inserido, é um pouco chate (conseguimos zerar o conteúdo por js quando o usuário for alterar novamente, para melhorar a UX) -->
+					<datalist id="valoresLista">
+						<option value="0">
+						<option value="1">
+						<option value="2">
+						<option value="3">
+						<option value="4">
+						<option value="5">
+						<option value="6">
+						<option value="7">
+						<option value="8">
+						<option value="9">
+						<option value="10">
+					</datalist>
+
+					<label for="range">Range</label><br/>
+					<input type="range" name="range" id="range" min="0" max="150" step="25"/><br/> <!-- O range nos permite selecionar através de um slider. Não vamos entrar em detalhes, mas ele permite selecionar, por exemplo, um preço máximo como filtro de visualização de produtos em um ecommerce, por exemplo. No final do arquivo css comentado há a estilização desse elemento (que foge um pouco do padrão que vimos até o momento).  -->
+
+					<label for="busca">Search</label><br/>
+					<input type="search" name="busca" id="busca" placeholder="O que está buscando?"/><br/> <!-- Input utilizado para buscas -->
+
+					<label for="tel">Telefone</label><br/>
+					<input type="tel" name="tel" id="tel"/><br/> <!-- O único browser que interpreta essa tag é o Safari. Para os outros browsers, funciona como input type text. Mas podemos usar o atributo tipo para inserir uma máscara de formato por JS (JavaScript) -->
+
+					<label for="horario">Horário</label><br/>
+					<input type="time" name="horario" id="horario"/><br/>
+
+					<label for="url">URL</label><br/>
+					<input type="url" name="url" id="url" placeholder="O que está buscando?"/><br/>
+
+					<label for="semana">Semana</label><br/>
+					<input type="week" name="semana" id="semana"/><br/>
+
+					<input type="hidden" name="validador" id="validador" value="9840es684se09s8409s84es"> <!-- Esse tipo de input (hidden) serve para enviarmos dados ocultos (não visíveis pelo usuário final), por exemplo um ID para atrelar ao novo usuário no banco de dados. -->
+				
+				</fieldset>
+
+				<button type="submit" value="Enviar" id="enviar" onclick="disparar()">Enviar</button> <!-- Botão do tipo submit, no caso com o clique nele atrelado a uma função em JavaScript para alertar uma mensagem de confirmação e o nome inserido -->
+				<button type="reset" value="Limpar" id="limpar">Limpar</button> <!-- Botão do tipo reset, que limpa o conteúdo inserido previamente. -->
+
+			</form>
+
+		</section>
+
+ <!-- ## EXERCÍCIO 3 (parte D)  -->
+
+		<footer>
+
+			<h5>Todos os direitos reservados</h5>
+
+		</footer>
+
+		<!-- EXTRA! UM POUQUINHO DE JS PRA VOCÊS! -->
+
+		<script type="text/javascript">
+			
+			var mensagemOculta = document.getElementById("validador");
+			var token = mensagemOculta.value;
+			var nome = document.getElementById("nome");
+			var sobrenome = document.getElementById("sobrenome");
+			var email = document.getElementById("email");
+
+			function disparar() {
+				// Veja que caso o token do campo hidden não corresponda ao token na validação via script, a mensagem não seria enviada (seria por que ainda não estamos enviando de fato)
+				if( token == "9840es684se09s8409s84es" && nome.value !== "" && sobrenome.value !== "" && email.value !== "" ) {
+					alert("Mensagem enviada "+nome.value+"!");
+				} else {
+					alert("Ops... parece que algo deu errado com o envio. Por favor, verifique os dados inseridos e tente novamente. Obrigado!");
+				}
+			}
+
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="utf-8">
+		<title>Formulário de Contato</title>
+		<link href="https://fonts.googleapis.com/css?family=Raleway|Nunito&display=swap" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/estilos.css">
+	</head>
+	<body>
+		<header>
+			<ul>
+				<li><a href="index.html" rel="tag" title="Voltar para Home" target="_self">Início</a></li>
+				<li><a href="hobbies.html" rel="tag" title="Ver Hobbies" target="_self">Hobbies</a></li>
+			</ul>
+		</header>
+		<h1>Formulário de Contato</h1>
+		<section class="formContainer">
+			<form method="POST" action="#" id="formulario">
+				<label for="nome">Nome</label>
+				<input type="text" name="nome" id="nome" placeholder="Insira seu nome aqui" required autofocus /><br/>
+				<label for="sobrenome">Sobrenome</label>
+				<input type="text" name="sobrenome" id="sobrenome" value="da Silva" placeholder="Insira seu sobrenome aqui" required/><br/>
+				<label for="email">Email</label>
+				<input type="email" name="email" id="email" placeholder="Insira seu email aqui" required/><br/>
+				<label for="genero">Gênero</label><br/>
+				<input type="radio" name="genero" value="feminino" checked/> <span>Feminino</span><br/>
+				<input type="radio" name="genero" value="masculino"/> <span>Masculino</span><br/>
+				<input type="radio" name="genero" value="outro"/> <span>Outro</span><br/>
+				<input type="radio" name="genero" value="nenhum"/> <span>Nenhum</span><br/>
+				<input type="radio" name="genero" value="todos"/> <span>Todos</span><br/>
+				<label for="passatempo">Passatempos</label><br/>
+				<input type="checkbox" value="Passatempo 1" name="passatempo"/> <span>Passatempo 1</span><br/>
+				<input type="checkbox" value="Passatempo 2" name="passatempo"/> <span>Passatempo 2</span><br/>
+				<input type="checkbox" value="Passatempo 3" name="passatempo"/> <span>Passatempo 3</span><br/>
+				<input type="checkbox" value="Passatempo 4" name="passatempo"/> <span>Passatempo 4</span><br/>
+				<input type="checkbox" value="Passatempo 5" name="passatempo"/> <span>Passatempo 5</span><br/>
+				<label for="assunto">Assunto da Mensagem</label><br/>
+				<select name="assunto" id="assunto">
+					<optgroup label="Assuntos mais comuns">
+						<option value="1" id="1">Assunto 1</option><br/>
+						<option value="2" id="2" disabled>Assunto 2 (desabilitado/disabled)</option><br/>
+						<option value="3" id="3">Assunto 3</option><br/>
+					</optgroup>
+					<optgroup label="Assuntos específicos">
+						<option id="4" value="4">Tema Específico 1</option>
+						<option id="5" value="5">Tema Específico 2</option>
+						<option id="6" value="6">Tema Específico 3</option>
+					</optgroup>
+				</select>
+				<br/>
+				<label for="mensagem">Mensagem</label><br/>
+				<textarea id="mensagem" name="mensagem" cols="60" rows="12" maxlength="114" form="formulario" placeholder="Insira sua mensagem aqui (máximo de 114 caracteres)."></textarea><br/>
+				<button type="submit" value="Enviar" id="enviar">Enviar</button>
+				<button type="reset" value="Limpar" id="limpar">Limpar</button>
+			</form>
+		</section>
+		<footer>
+			<h5>Todos os direitos reservados</h5>
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,259 @@
+	
+	/* DICA: o asterisco representa um seletor universal, ou seja, o que for declarado aqui se aplica a tudo dentro do seu documento HTML */
+	
+	* {
+		scroll-behavior: smooth; /* DICA: esse atributo define como o scroll (no caso de cliques em âncoras, por exemplo) se comportará. O valor smooth diz que deve ser suave a transição. */
+
+/* ## EXERCÍCIO 4 */
+
+		box-sizing: border-box;
+	}
+
+	body {
+		font-family: Raleway, sans-serif; /* Definimos que a família de fontes será sem serifas (sans-serif) */
+		background-image:linear-gradient(to right,green 0%,yellow 100%),url('../images/bg.png'); /* Estamos definindo uma imagem de fundo (o link da imagem - no caso, relativo - deve ser indicado após o valor 'url(' e antes do fechamento das aspas). Mas antes, também declaramos um fundo com um degradê */
+		background-blend-mode: soft-light; /* Leia no final do documento mais detalhes sobre esse atributo, que mescla o gradiente com a imagem de fundo. =) */
+		background-color: rgba(255,255,255,0.2); /* Além da mescla citada acima, estamos acrescentando uma cor branca com opacidade de 20%, para clarear o fundo e permitir uma boa leitura dos textos.  */
+		background-repeat: repeat; /* Como baixamos uma imagem do tipo pattern (que pode ser repetida sem que o usuário note, por conta de seu 'padrão', em inglês pattern), permitiremos que ela se repita (em ambos os eixos, x e y). */
+		background-attachment: fixed; /* Semelhante ao atributo position para elementos HTML, temos o background-attachment (valores: scroll, fixed e local - veja mais no final do arquivo, busque por SOBRE O background-attachment usando Ctrl+F) */
+		background-position: center; /* Podemos declarar a posição vertical e horizontal separadamente. Podemos fazer isso usando os termos top, bottom, right, left ou podemos usar unidades de medida (px, %, em, cm...). Ou ainda, ambos (top 10px right 50px) */
+	}
+
+	h1, h2 {
+		color: #1c4e9e; /* Aplicamos cor (por seu código HEXADECIMAL) nas fontes (para cor no fundo utilizamos o background-color) */
+	}
+
+	h1 {
+		font-style: italic; /* Aplicamos o estilo itálico no título principal (h1) */
+		text-align: center; /* Centralizamos o texto de h1 */
+		background-color: rgba(255,255,255,0.65); /* rgba é uma sigla que se refere a: Red (vermelho), Green (verde), Blue (azul) e Alpha (opacidade, 1 para 100% opaco/0% transparente e 0 para 100% transparente/0% opaco). */
+	}
+
+	h2 {
+		font-weight: normal; /* Deixamos o peso dos subtítulos (h2) normal, ou seja, sem negrito, que é seu padrão */
+		text-decoration: underline; /* Definimos que os subtítulos h2 serão sublinhados */
+	}
+
+	mark {
+		font-family: Nunito, cursive; /* Mudamos a família de fonte dessas tags para Nunito (ou cursiva, caso não carregue a Nunito do GoogleFonts) */
+		text-decoration: blink; /* Propriedade que faz o texto piscar */
+			-webkit-animation-name: blinker; /* webkits servem para browsers que não conseguem interpretar certo recurso possam gerar o mesmo resultado esperado (ou o mais próximo possível) através de outros caminhos. No caso está chamando uma animação css que simula esse text-decoration */
+			-webkit-animation-duration: 0.6s; /* tempo de duração da animação (do ciclo completo) */
+			-webkit-animation-iteration-count:infinite; /* Repetição da animação */
+			-webkit-animation-timing-function:ease-in-out; /* Timing da animação (conforme link sobre cubic-bezier enviado no Whatsapp do grupo - http://cubic-bezier.com) */
+			-webkit-animation-direction: alternate; /* Direção da animação (do início ao fim) - no caso, diz que a animação vai do início ao fim e então do fim ao início */
+	}
+
+	strong, em { /* Selecionando as duas tags semânticas - em (emphasize) e strong */
+		color: black;
+		text-decoration: underline; /* decoração do texto - sublinhado (uniderline) */
+	}
+
+	p {
+		text-align: justify; /* Deixamos os textos de todos os parágrafos centralizados */
+		font-size: 22px; /* Definimos um tamanho de fonte de 14 pixels para os parágrafos */
+		line-height: 28px; /* Definimos uma altura de linha (como um entrelinhas) de 23 px (9px a mais que o tamanho da fonte, ou seja, fica 4,5 pixels para cima e 4,5 para baixo da fonte) */
+	}
+
+	.destaque { /* Seletor por classe (utiliza o ponto) */
+		background-color: orange;
+		color: purple;
+	}
+
+	/* Animação css: definimos que se trata de uma animação (no caso para webkit), damos um nome e, entre as chaves, definimos a animação, onde from define o estado inicial e to o final (de acordo com os atributos na referência à animação). */
+	@-webkit-keyframes blinker {
+		from {opacity: 1.0;} /* Estado inicial da animação (que dura 0.6 segundo) */
+		to {opacity: 0.0;} /* Estado final (dentro de um ciclo) da animação (que dura 0.6 segundo) */
+	}
+	label {
+		font-weight: bold;
+	}
+
+	input:focus, select:focus, textarea:focus {
+		background-color: #ccffcc;
+		font-weight: bolder;
+	}
+
+	textarea {
+		resize: both;
+		font-weight: bolder;
+	}
+
+	label[for="mensagem"]:hover ~ textarea, a:hover { /* Selecionando todos os elementos que quero que sejam afetados quando passarmos o mouse sobre eles. */
+
+		/* DICA: veja o seletor label:hover ~ textarea. No caso diz que quando passarmos o mouse sobre o label (label:hover) - que contém o textaera 'dentro' - o textarea será afetado (label:hover ~ textarea). */
+		/* EXTRA: O sinal ~ define que estamos selecionando o textarea, no caso, que é precedido por uma tag label. Se não houver essa tag label antes, o seletor não será aplicado */
+		/* Descubra todos os tipos de seletores acesando https://www.w3schools.com/cssref/css_selectors.asp */
+		
+		background-color: #f15022;
+		font-weight: bolder;
+		color: white;
+		border: 2px solid purple;
+	}
+
+	input[type="checkbox"]:hover + span, input[type="radio"]:hover ~ span {
+		color: blue;
+		font-weight: bolder;
+	}
+
+	/* DICA: podemos selecionar elementos pelos valores de seus atributos. Nesse exemplo acima, selecionamos os inputs do tipo checkbox. */
+	/* DICA EXTRA: semelhante ao ~, que seleciona todos os elementos irmãos, como fizemos com o text-area, o sinal de + seleciona apenas o próximo elemento irmão (sibling). Ou seja, se trocarmos o + por ~, todos os span após o input checkbox serão afetods (os anteriores não). Com o +, apenas o próximo irmão é afetado. Deixamos o caso do radio input com o ~, veja como ele se comporta diferentemente. =) */
+
+
+	input::placeholder, textarea::placeholder { /* Aqui estamos usando um outro pseudo-seletor, específico para selecionarmos o placeholder de um input. No caso,deixamos a font cursiva. Veja os campos Nome, Sobrenome, Email e Mensagem. */
+		font-family: cursive;
+		font-weight: normal;
+		font-style: italic;
+	}
+
+	label[for="mensagem"]:hover ~ textarea::placeholder { /* Aqui estamos declarando que o texto do placeholder deve ser branco quando houver hover em seu label (que já determinamos que o fundo fica laranja) */
+		color: white;
+	}
+
+	/* Observação: quando declaramos que o text area deveria ficar laranja ao passarmos o mouse sobre seu label, não atingimos o texto do placeholder. Se incluíssimos no mesmo trecho de código o seletor do placeholder, o placeholder herdaria as demais regras (como borda roxa). Por isso criamos um outro trecho, específico para manipularmos o texto do placeholder quando o label tiver o hover ativo. */
+
+	img.hobbies {
+		margin: 20px 14%;
+		-webkit-transition: all 0.5s ease-in; /* Aqui estamos declarando como queremos que ocorram transições (por exemplo do estado inicial para quando é chamado o hover). */
+	    -moz-transition: all 0.5s ease-in; /* O primeiro valor são os atributos afetados. All seleciona todos. Também podemos eleger apenas uma propriedade. Ou podemos declarar as propriedades afetadas de forma isolada { transition-property: filter, border-radius; } por exemplo) */
+	    -ms-transition: all 0.5s ease-in; /* O segundo o tempo, no caso em segundos. Normalmente, para efeitos em botões e elementos de interface, utilizamos valores abaixo de um segundo. */
+	    transition: all 0.5s ease-in; /* E o terceiro o timing da animação (se será linear, se será acentuado no início, final, em ambos... veja a dica sobre Cubic Bezier,use Control + F para buscá-la nos arquivos do projeto) */
+	}
+
+	img.hobbies:hover {
+		filter: drop-shadow(1px 1px 3px black) grayscale(100%); /* filter é um atributo que manipula a imagem, semelhante aos do Photoshop. Veja mais alguns tipos em https://www.w3schools.com/cssref/css3_pr_filter.asp */
+			-webkit-filter: drop-shadow(1px 1px 3px black) grayscale(100%); /* webkit para ajudar alguns browsers (que não aceitam alguns atributos novos) a exibirem o estilo da maneira esperada, no caso para o Safari 6.0 - 9.0 */
+		border-radius: 20px;
+	}
+
+	/* EXTRA - Aplicando estilo sobre o input range */
+
+	input[type="range"] {
+	  -webkit-appearance: none; /* Override default CSS styles */
+	  appearance: none;
+	  width: 20%;
+	  height: 25px;
+	  background: #d3d3d3;
+	  outline: none; /* Remove a outline */
+	  opacity: 1;
+	  -webkit-transition: opacity .2s ease;
+	  transition: opacity .2s ease;
+	}
+
+	input[type="range"]:hover {
+	  opacity: 0.8;
+	}
+
+	input[type="range"]::-webkit-slider-thumb {
+	  -webkit-appearance: none; /* Zeramos o estilo padrão */
+	  appearance: none;
+	  width: 25px;
+	  height: 25px; /* Slider handle height */
+	  background: orange;
+	  cursor: pointer; /* Tipo de cursos que aparece quando passamos o mouse sobre o elemento */
+	}
+
+	input[type="range"]::-moz-range-thumb {
+	  width: 25px;
+	  height: 25px;
+	  background: orange;
+	  cursor: pointer;
+	}
+
+/* ## EXERCÍCIO 1B */
+
+/* ## EXERCÍCIO 2A, 2B, 2C e 2D */
+
+
+	header, footer, main, .formContainer, .descPessoal, .dadosPessoais, .formAcademica, .expPro, .extras {
+		background-color: rgba(125,125,125,0.5); /* 1B -> cor de fundo desses containers */
+		width: 960px; /* 2A -> largura desses containers */
+		padding: 30px; /* 2B -> padding desses containers */
+		border: 5px dotted blue; /* 2C -> largura desses containers */
+		margin: 20px auto; /* 2D -> margens dos containers (20px acima e abaixo e centralizado no meio através do margin auto) */
+	}
+
+	main {
+		height: -webkit-fill-available;
+		overflow-y: scroll;
+	}
+
+	article {
+		background-color: rgba(125,125,125,0.5); /* 1B -> cor de fundo desses containers */
+		padding: 30px; /* 2B -> padding desses containers */
+		border: 5px dotted blue; /* 2C -> largura desses containers */
+		margin: 20px auto; /* 2D -> margens dos containers (20px acima e abaixo e centralizado no meio através do margin auto) */
+	}
+
+/* ## EXERCÍCIO 3 (parte B) */
+
+	#aside {
+		width: 33%; /* largura do container B (tag semântica aside) */
+		float: left; /* Faz com que o elemento 'flutue' à esquerda, ou seja, que fique alinhado à esquerda */
+		border: 5px dotted blue; /* 2C -> largura desses containers */
+		background-color: rgba(125,125,125,0.5);
+		margin: 20px auto;
+	}
+
+/* ## EXERCÍCIO 3 (parte B) */
+
+	#main {
+		width: 66%; /* largura do container C (tag semântica main) */
+		float: right; /* Faz com que o elemento 'flutue' à direita, ou seja, que fique alinhado à direita */
+	}
+
+	footer {
+		text-align: center;
+	}
+
+/*
+**
+** ### SOBRE O background-attachment ###
+** ___________________________________
+** 
+** Considere a seguinte estrutura:
+** 
+** <body>
+**   <section id='comImagemDeFundo'>
+**   </section>
+** </body>
+** 
+** Supondo que o conteúdo da section é mais 'alto' do que sua altura - e que há uma barra de rolagem para visualizar
+** o restante do conteúdo, nós selecionamos a section por seu id (#comImagemDeFundo) e aplicamos a imagem de fundo.
+** 
+** Ou seja, temos a imagem de fundo sendo aplicada à section que, por sua vez, está dentro do body. 
+**
+** Nesse contexto, os diferentes background-attachment funcionariam da seguinte maneira:
+** 
+** FIXED: a imagem de fundo fica fixa (ou parada) tanto em relação ao body quanto à section (quando 'rolamos' a tela).
+** 
+** SCROLL: dentro da section, a imagem ficará parada enquanto o conteúdo 'rola'. Mas se você rolar a página (fora da section, descendo para outras sections, por exemplo), a imagem 'rola' junto.
+** 
+** LOCAL: a imagem rola junto com o conteúdo, tanto dentro quanto fora da section.
+** 
+** Acesse https://codepen.io/BernLeech/pen/mMNKJV para entender melhor o comportamento desses três valores para o background-attachment.
+**
+*/
+
+/*
+** ### SOBRE linear-gradient() E o background-image + background-blend-mode ###
+** ___________________________________
+** 
+** Podemos declarar uma cor (ou gradiente) E uma imagem ao background-image e definir como os dois serão mesclados. Funciona como os filtros de layers utilizados no color overlay do Photoshop.
+** 
+** tag.classe {
+**   background-image: linear-gradient(to right,green 0%,yellow 100%),url('../images/bg.png');
+**   background-blend-mode:overlay;
+** }
+** 
+** Nesse exemplo temos o linear-gradient, onde 'to right' diz que o gradiente vai da esquerda para a direita (horizontalmente) e o 'green 0%, yellow 100%' dizemos que o gradiente (degradê) começa
+** amarelo (0%, no início do degradê) e termina verde (100%, ou seja, no final do degradê).
+** 
+** Em seguida 'chamamos' a imagem (com o url(pasta/link-relativo-ou-absoluto.gif)).
+**
+** Na sequência declaramos background-blend-mode, ou seja, como mesclaremos a imagem e o degradê. E optamos pelo filtro overlay.
+** 
+** Acesse https://www.w3schools.com/cssref/playit.asp?filename=playcss_background-blend-mode e experimente os diferentes valores possíveis (normal, multiply, screen, overlay, darken, lighten,
+** color-edge, saturation, color e luminosity).
+** 
+*/
